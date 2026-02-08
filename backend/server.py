@@ -786,14 +786,17 @@ async def get_goals(current_user: dict = Depends(get_current_user)):
         {"organization_id": current_user["org_id"]}, {"_id": 0}
     ).sort("created_at", -1).to_list(100)
     
+    # Fetch all activities once to avoid N+1 query problem
+    all_activities = await db.activities.find({
+        "organization_id": current_user["org_id"]
+    }, {"_id": 0, "carbon_emission_kg": 1, "created_at": 1}).to_list(10000)
+    
     # Update current emissions and progress for each goal
     for goal in goals:
-        activities = await db.activities.find({
-            "organization_id": current_user["org_id"],
-            "created_at": {"$gte": goal["created_at"]}
-        }, {"_id": 0}).to_list(1000)
+        # Filter activities in memory instead of querying for each goal
+        goal_activities = [a for a in all_activities if a.get("created_at", "") >= goal["created_at"]]
         
-        current = sum(a.get("carbon_emission_kg", 0) for a in activities)
+        current = sum(a.get("carbon_emission_kg", 0) for a in goal_activities)
         goal["current_emissions_kg"] = current
         
         if goal["baseline_emissions_kg"] > 0:
