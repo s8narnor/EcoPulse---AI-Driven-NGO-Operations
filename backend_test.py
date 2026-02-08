@@ -72,7 +72,7 @@ class EcoPulseAPITester:
     def test_user_registration(self):
         """Test user registration"""
         test_user_data = {
-            "email": f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}@ecopulse.test",
+            "email": f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}@example.com",
             "password": "TestPassword123!",
             "name": "Test User",
             "organization_name": "Test NGO Organization"
