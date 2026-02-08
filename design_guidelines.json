@@ -1,0 +1,206 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "EcoPulse",
+      "persona": "E1 - The Anti-AI Designer",
+      "tone": "Professional, Trustworthy, Impactful, Clean, Eco-Tech",
+      "archetype": "Organic & Earthy (Archetype 1) + Swiss High-Contrast (Archetype 4)"
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Outfit, sans-serif",
+        "body": "Inter, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "h1": "text-5xl md:text-6xl font-bold tracking-tight",
+        "h2": "text-4xl md:text-5xl font-semibold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-semibold",
+        "body_lg": "text-lg leading-relaxed",
+        "body_base": "text-base leading-relaxed",
+        "caption": "text-sm text-muted-foreground"
+      },
+      "rules": [
+        "Headings must use 'Outfit'. Do not use Inter for headings.",
+        "Use 'tracking-tight' for all headings larger than 24px.",
+        "Use 'leading-relaxed' for body text to improve readability.",
+        "Avoid pure black (#000000) for text; use #1A1A1A or #2D2D2D."
+      ]
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#1A4D2E",
+          "foreground": "#FFFFFF",
+          "hover": "#143D24"
+        },
+        "secondary": {
+          "DEFAULT": "#4F6F52",
+          "foreground": "#FFFFFF",
+          "hover": "#3E5842"
+        },
+        "accent": {
+          "DEFAULT": "#F9E400",
+          "foreground": "#1A1A1A",
+          "hover": "#D9C600"
+        },
+        "background": {
+          "DEFAULT": "#F5F7F5",
+          "paper": "#FFFFFF",
+          "dark": "#0A0A0A"
+        },
+        "text": {
+          "primary": "#1A1A1A",
+          "secondary": "#4A4A4A",
+          "muted": "#71717A"
+        },
+        "status": {
+          "success": "#22C55E",
+          "warning": "#F59E0B",
+          "error": "#EF4444",
+          "info": "#3B82F6"
+        }
+      },
+      "gradients": {
+        "hero": "bg-gradient-to-br from-[#1A4D2E] to-[#4F6F52]",
+        "card_hover": "hover:bg-gradient-to-br hover:from-white hover:to-[#F5F7F5]"
+      },
+      "rules": [
+        "Use Primary Green (#1A4D2E) for main CTAs and active states.",
+        "Use Accent Yellow (#F9E400) sparingly for high-impact highlights or 'Energy' metrics.",
+        "Backgrounds should be off-white (#F5F7F5) to reduce eye strain, not pure white.",
+        "Ensure contrast ratio of at least 4.5:1 for normal text."
+      ]
+    },
+    "spacing": {
+      "scale": {
+        "container_padding": "p-6 md:p-12 lg:p-24",
+        "section_gap": "gap-12 md:gap-24",
+        "component_gap": "gap-4 md:gap-8"
+      },
+      "rules": [
+        "Use generous spacing. If you think 'p-4' is enough, use 'p-8'.",
+        "Containers with borders must have internal padding (p-6 or p-8).",
+        "Mobile-first: Always start with single column and expand."
+      ]
+    },
+    "layout": {
+      "grid_systems": {
+        "marketing": {
+          "name": "Tetris Grid (Mode A)",
+          "classes": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-8",
+          "rules": [
+            "Hero: col-span-full md:col-span-8 row-span-2",
+            "Feature: col-span-4 row-span-1",
+            "Visual: col-span-4 row-span-2",
+            "Never fill 100% perfectly; leave breathing room."
+          ]
+        },
+        "dashboard": {
+          "name": "High Density Bento (Mode B)",
+          "classes": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+          "rules": [
+            "Summary Card: col-span-1",
+            "Main Chart: col-span-2 row-span-2 or col-span-3",
+            "Feed/List: col-span-1 row-span-2",
+            "Use h-full to ensure equal heights."
+          ]
+        }
+      },
+      "containers": {
+        "max_width": "max-w-7xl mx-auto",
+        "glass": "bg-white/70 backdrop-blur-xl border border-white/20 shadow-sm"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-[#1A4D2E] text-white hover:bg-[#143D24] rounded-full px-8 py-3 font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+        "secondary": "bg-[#F5F7F5] text-[#1A4D2E] border border-[#1A4D2E]/20 hover:bg-[#E8EBE8] rounded-full px-8 py-3 font-medium transition-all",
+        "ghost": "text-[#1A4D2E] hover:bg-[#1A4D2E]/10 rounded-full px-6 py-2 transition-all"
+      },
+      "cards": {
+        "base": "bg-white rounded-2xl border border-border/40 shadow-sm hover:shadow-md transition-all duration-300",
+        "glass": "bg-white/60 backdrop-blur-md border border-white/40 shadow-sm"
+      },
+      "inputs": {
+        "base": "bg-white border border-input rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#1A4D2E]/20 focus:border-[#1A4D2E] transition-all"
+      }
+    },
+    "visual_enhancers": {
+      "shadows": {
+        "soft": "shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+        "glow": "shadow-[0_0_20px_rgba(26,77,46,0.3)]"
+      },
+      "borders": {
+        "subtle": "border border-black/5",
+        "highlight": "border-l-4 border-[#1A4D2E]"
+      },
+      "textures": {
+        "noise": "bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"
+      }
+    },
+    "motion": {
+      "transitions": "transition-all duration-300 ease-out",
+      "hover_lift": "hover:-translate-y-1 hover:shadow-lg",
+      "micro_interactions": "active:scale-95"
+    },
+    "assets": {
+      "images": {
+        "hero_bg": {
+          "url": "https://images.unsplash.com/photo-1748615734058-1831b2af4a44?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwxfHx3aW5kJTIwdHVyYmluZXMlMjBncmVlbiUyMGVuZXJneSUyMG5hdHVyZXxlbnwwfHx8fDE3NzA1NjU4Mzd8MA&ixlib=rb-4.1.0&q=85",
+          "alt": "Wind turbines on green hills",
+          "usage": "Landing Page Hero Background"
+        },
+        "impact_trees": {
+          "url": "https://images.unsplash.com/photo-1763856957026-a74ab4f05891?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxwbGFudGluZyUyMHRyZWVzJTIwaGFuZHMlMjBzb2lsfGVufDB8fHx8MTc3MDU2NTg0N3ww&ixlib=rb-4.1.0&q=85",
+          "alt": "Hands planting a tree seedling",
+          "usage": "Impact Section / Trees Saved Metric"
+        },
+        "team_meeting": {
+          "url": "https://images.unsplash.com/photo-1758691737182-d42aefd6dee8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZ3JvdXAlMjBvZiUyMHBlb3BsZSUyMHdvcmtpbmclMjB0b2dldGhlciUyMGluJTIwb2ZmaWNlJTIwbWVldGluZ3xlbnwwfHx8fDE3NzA1NjU4NjZ8MA&ixlib=rb-4.1.0&q=85",
+          "alt": "Diverse team in office meeting",
+          "usage": "About Us / Team Section"
+        },
+        "solar_panels": {
+          "url": "https://images.unsplash.com/photo-1767768389516-265cdd50a243?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwzfHx3aW5kJTIwdHVyYmluZXMlMjBncmVlbiUyMGVuZXJneSUyMG5hdHVyZXxlbnwwfHx8fDE3NzA1NjU4Mzd8MA&ixlib=rb-4.1.0&q=85",
+          "alt": "Solar panels and wind turbines",
+          "usage": "Energy Tracking Section"
+        }
+      },
+      "icons": {
+        "library": "lucide-react",
+        "style": "Stroke width 1.5px, rounded corners"
+      }
+    },
+    "accessibility": {
+      "rules": [
+        "Ensure all text has sufficient contrast (AA standard).",
+        "Use semantic HTML (header, main, footer, nav, section).",
+        "All interactive elements must have 'data-testid'.",
+        "Focus states must be visible (ring-2 ring-offset-2)."
+      ]
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": [
+      "Follow the 'Organic & Earthy' archetype strictly.",
+      "Use the provided image URLs for specific sections.",
+      "Implement the 'Tetris Grid' for the landing page and 'Bento Grid' for the dashboard.",
+      "Use Shadcn/UI for interactive components but style them with the defined color palette.",
+      "Do not use default Shadcn slate colors; override with the custom green/earth tones."
+    ],
+    "pages": {
+      "landing": "Create a high-impact hero section with the wind turbine background. Use large typography and clear CTAs.",
+      "dashboard": "Focus on data density and clarity. Use white cards on the off-white background. Use charts (Recharts) with the custom color palette.",
+      "activities": "Create a clean, multi-step form for emission tracking. Use progress indicators.",
+      "insights": "Use the 'impact_trees' image for the 'Trees Saved' metric card. Make it visual and emotional."
+    }
+  },
+  "universal_guidelines": [
+    "Avoid 'AI slop' - generic, centered, boring designs.",
+    "Use 2-3x more spacing than typical.",
+    "Add micro-interactions to every button and card.",
+    "Use 'sonner' for toasts.",
+    "Export components as named exports, pages as default exports."
+  ]
+}
