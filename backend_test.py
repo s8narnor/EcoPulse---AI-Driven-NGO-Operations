@@ -59,6 +59,10 @@ class EcoPulseAPITester:
             except:
                 response_data = {"status_code": response.status_code, "text": response.text}
 
+            # Add debug info for failed status checks
+            if not success:
+                print(f"   DEBUG: Expected {expected_status}, got {response.status_code}")
+
             return success, response_data
 
         except Exception as e:
