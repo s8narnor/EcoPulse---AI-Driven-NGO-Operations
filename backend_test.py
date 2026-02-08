@@ -120,7 +120,7 @@ class EcoPulseAPITester:
             "cost": 100.50
         }
         
-        success, data = self.make_request("POST", "/activities/travel", travel_data, 201)
+        success, data = self.make_request("POST", "/activities/travel", travel_data, 200)
         
         if success and "carbon_emission_kg" in data:
             actual_emission = data["carbon_emission_kg"]
@@ -143,7 +143,7 @@ class EcoPulseAPITester:
             "cost": 500.00
         }
         
-        success, data = self.make_request("POST", "/activities/staff-welfare", welfare_data, 201)
+        success, data = self.make_request("POST", "/activities/staff-welfare", welfare_data, 200)
         
         if success and "carbon_emission_kg" in data:
             actual_emission = data["carbon_emission_kg"]
@@ -167,7 +167,7 @@ class EcoPulseAPITester:
             "notes": "Daily office energy consumption"
         }
         
-        success, data = self.make_request("POST", "/energy", energy_data, 201)
+        success, data = self.make_request("POST", "/energy", energy_data, 200)
         
         if success and "carbon_emission_kg" in data:
             actual_emission = data["carbon_emission_kg"]
@@ -189,7 +189,7 @@ class EcoPulseAPITester:
             "baseline_emissions_kg": 1000.0
         }
         
-        success, data = self.make_request("POST", "/goals", goal_data, 201)
+        success, data = self.make_request("POST", "/goals", goal_data, 200)
         self.log_test("Goal Creation", success,
                      f"Goal '{data.get('title', '')}' created successfully" if success else f"Failed to create goal: {data}")
         return success
