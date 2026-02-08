@@ -39,29 +39,38 @@ export const apiClient = axios.create({
 // Auth Provider
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem("ecopulse_token"));
+  const [token, setToken] = useState(() => localStorage.getItem("ecopulse_token"));
   const [loading, setLoading] = useState(true);
 
+  // Set auth header on initial load
   useEffect(() => {
-    if (token) {
-      apiClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      fetchUser();
-    } else {
-      setLoading(false);
+    const storedToken = localStorage.getItem("ecopulse_token");
+    if (storedToken) {
+      apiClient.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
     }
-  }, [token]);
+  }, []);
 
-  const fetchUser = async () => {
-    try {
-      const response = await apiClient.get("/auth/me");
-      setUser(response.data);
-    } catch (error) {
-      console.error("Auth error:", error);
-      logout();
-    } finally {
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (token) {
+        apiClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        try {
+          const response = await apiClient.get("/auth/me");
+          setUser(response.data);
+        } catch (error) {
+          console.error("Auth error:", error);
+          // Clear invalid token
+          localStorage.removeItem("ecopulse_token");
+          delete apiClient.defaults.headers.common["Authorization"];
+          setToken(null);
+          setUser(null);
+        }
+      }
       setLoading(false);
-    }
-  };
+    };
+    
+    fetchUserData();
+  }, [token]);
 
   const login = async (email, password) => {
     try {
