@@ -1,4 +1,6 @@
 # EcoPulse - AI-Driven NGO Operations
+<img width="1133" height="826" alt="banner" src="https://github.com/user-attachments/assets/0c780d78-ffee-4e91-b69e-984c1500bc44" />
+
 ## Clone and setup
 - git clone https://github.com/s8narnor/EcoPulse---AI-Driven-NGO-Operations.git
 - cd ecopulse-ngo
@@ -7,7 +9,8 @@
 - cd backend
 - python -m venv venv && source venv/bin/activate
 - pip install -r requirements.txt
-- cp .env.example .env  # Edit with your values
+- cp .env.example .env  # Edit with your values 
+
 - uvicorn server:app --host 0.0.0.0 --port 8001 --reload
 
 ### Environment Variables Required for Deployment:
